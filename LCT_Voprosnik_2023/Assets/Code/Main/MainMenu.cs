@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     private TutorialChangeImage _tutorialChangeImage;
     private CollectionDemo _collectionDemo;
     private MapLevels _mapLevels;
+    private ChooseLevel _chooseLevel;
 
     #endregion
 
@@ -39,6 +40,7 @@ public class MainMenu : MonoBehaviour
         _tutorialChangeImage.Awake();
         _collectionDemo.Awake();
         _mapLevels.Awake();
+        _chooseLevel.Awake();
     }
 
     private void InitializeControllers()
@@ -47,5 +49,6 @@ public class MainMenu : MonoBehaviour
         _tutorialChangeImage = new TutorialChangeImage(_tutorialView, _windowsView);
         _collectionDemo = new CollectionDemo(_collectionView, _buttonsView);
         _mapLevels = new MapLevels(_playWindowView, _mapSO);
+        _chooseLevel = new ChooseLevel(_playWindowView);
     }
 }
