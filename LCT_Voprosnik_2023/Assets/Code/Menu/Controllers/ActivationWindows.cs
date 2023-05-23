@@ -18,6 +18,7 @@ public class ActivationWindows
     {
         _buttonsView.ExitButton.onClick.AddListener(Exit);
         _buttonsView.PlayButton.onClick.AddListener(() => ActivateWindow(_windowsView.PlayWindow));
+        _buttonsView.CollectionButton.onClick.AddListener(() => ActivateWindow(_windowsView.CollectionWindow));
         _buttonsView.AuthorsButton.onClick.AddListener(() => ActivateWindow(_windowsView.AuthorsWindow));
         _buttonsView.TutorialButton.onClick.AddListener(() => ActivateWindow(_windowsView.TutorialWindow));
 

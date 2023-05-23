@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
 
     private ActivationWindows _activationWindows;
     private TutorialChangeImage _tutorialChangeImage;
-    private CollectionDemo _collectionDemo;
+    private Collection _collectionDemo;
     private MapLevels _mapLevels;
     private ChooseLevel _chooseLevel;
 
@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
     {
         _activationWindows = new ActivationWindows(_buttonsView, _windowsView);
         _tutorialChangeImage = new TutorialChangeImage(_tutorialView, _windowsView);
-        _collectionDemo = new CollectionDemo(_collectionView, _buttonsView);
+        _collectionDemo = new Collection(_collectionView, _buttonsView);
         _mapLevels = new MapLevels(_playWindowView, _mapSO);
         _chooseLevel = new ChooseLevel(_playWindowView);
     }
