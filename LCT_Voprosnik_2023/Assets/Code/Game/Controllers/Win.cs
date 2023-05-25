@@ -2,19 +2,22 @@ using UnityEngine.SceneManagement;
 
 public class Win 
 {
-    private WinView _winView;
+    private WinView[] _winViews;
 
-    public Win(WinView winView)
+    public Win(WinView[] winViews)
     {
-        _winView = winView;
+        _winViews = winViews;
     }
 
     public void Awake() => Initialize();
 
     private void Initialize()
     {
-        _winView.NextButton.onClick.AddListener(NextButton);
-        _winView.ExitButton.onClick.AddListener(ExitButton);
+        foreach(var winView in _winViews)
+        {
+            winView.NextButton.onClick.AddListener(NextButton);
+            winView.ExitButton.onClick.AddListener(ExitButton);
+        }
     }
 
     private void ExitButton()

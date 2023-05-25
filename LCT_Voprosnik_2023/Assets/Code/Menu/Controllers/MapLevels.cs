@@ -23,6 +23,12 @@ public class MapLevels
     {
         _playWindowView.PlusButton.onClick.AddListener(() => ChangeScale(true));
         _playWindowView.MinusButton.onClick.AddListener(() => ChangeScale(false));
+ 
+        Debug.Log(Save.Level);
+        for(int i = 0; i <= Save.Level; i++)
+        {
+            _playWindowView.LevelButtons[i].gameObject.SetActive(true);
+        }
     }
 
     private void ChangeScale(bool plus)

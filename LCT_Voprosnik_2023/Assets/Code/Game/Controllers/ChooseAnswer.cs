@@ -1,5 +1,6 @@
 using System;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class ChooseAnswer
 {
@@ -28,6 +29,7 @@ public class ChooseAnswer
     {
         Initialize();
         _levelView.NextStageButton.gameObject.SetActive(false);
+        _questionID = (CurrentLevel.Level * _questionSO.CountQuestionsInLevel) + _stage;
         ResetLevel();
     }
 

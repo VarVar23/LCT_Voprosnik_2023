@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private CollectionView _collectionView;
     [SerializeField] private PlayWindowView _playWindowView;
     [SerializeField] private MusicMenuView _musicView;
+    [SerializeField] private ButterflyView _butterflyView;
 
     #endregion
 
@@ -19,6 +20,8 @@ public class MainMenu : MonoBehaviour
 
     [Header("Scriptable Objects")]
     [SerializeField] private MapSO _mapSO;
+    [SerializeField] private CollectionSO _collectionSO;
+    [SerializeField] private EndGameSO _endGameSO;
 
     #endregion
 
@@ -31,6 +34,7 @@ public class MainMenu : MonoBehaviour
     private MapLevels _mapLevels;
     private ChooseLevel _chooseLevel;
     private MusicMenu _musicController;
+    private ButterflyActive _butterflyActive;
 
     #endregion
 
@@ -45,6 +49,7 @@ public class MainMenu : MonoBehaviour
         _mapLevels.Awake();
         _chooseLevel.Awake();
         _musicController.Awake();
+        _butterflyActive.Awake();
     }
 
     private void InitializeControllers()
@@ -52,9 +57,10 @@ public class MainMenu : MonoBehaviour
         _loadSaveData = new LoadSaveData();
         _activationWindows = new ActivationWindows(_buttonsView, _windowsView);
         _tutorialChangeImage = new TutorialChangeImage(_tutorialView, _windowsView);
-        _collectionDemo = new Collection(_collectionView, _buttonsView);
+        _collectionDemo = new Collection(_collectionView, _buttonsView, _collectionSO);
         _mapLevels = new MapLevels(_playWindowView, _mapSO);
         _chooseLevel = new ChooseLevel(_playWindowView);
         _musicController = new MusicMenu(_musicView);
+        _butterflyActive = new ButterflyActive(_butterflyView, _endGameSO);
     }
 }

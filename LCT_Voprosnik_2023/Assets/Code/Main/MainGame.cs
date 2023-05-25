@@ -9,7 +9,7 @@ public class MainGame : MonoBehaviour
     [SerializeField] private TimerView _timerView;
     [SerializeField] private EndGameView _endGameView;
     [SerializeField] private PauseView _pauseView;
-    [SerializeField] private WinView _winView;
+    [SerializeField] private WinView[] _winViews;
     [SerializeField] private LoseView _loseView;
     [SerializeField] private MusicGameView _musicGameView;
 
@@ -21,6 +21,7 @@ public class MainGame : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private QuestionSO _questionSO;
     [SerializeField] private EndGameSO _endGameSO;
+    [SerializeField] private CollectionSO _collectionSO;
 
 
     #endregion
@@ -54,6 +55,7 @@ public class MainGame : MonoBehaviour
     {
         _level.Start();
         _timer.Start();
+
     }
 
     private void InitializeControllers()
@@ -61,9 +63,9 @@ public class MainGame : MonoBehaviour
         _level = new Level(_questionSO, _levelView);
         _timer = new Timer(_timerView, _questionSO);
         _chooseAnswer = new ChooseAnswer(_questionSO, _levelView, _level, _timer);
-        _endGame = new EndGame(_endGameView, _chooseAnswer, _endGameSO);
+        _endGame = new EndGame(_endGameView, _chooseAnswer, _endGameSO, _collectionSO, _winViews);
         _pause = new Pause(_pauseView, _timer);
-        _win = new Win(_winView);
+        _win = new Win(_winViews);
         _lose = new Lose(_loseView);
         _musicGame = new MusicGame(_musicGameView, _chooseAnswer);
     }

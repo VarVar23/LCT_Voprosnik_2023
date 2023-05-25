@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _countTrueAnswerForWin: 3
   _maxCountTrueAnswer: 5
+  _maxCountLevel: 10

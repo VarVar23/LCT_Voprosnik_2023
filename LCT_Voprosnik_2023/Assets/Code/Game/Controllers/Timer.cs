@@ -12,6 +12,8 @@ public class Timer
     private TimerView _timerView;
     private QuestionSO _questionSO;
     private int _numberQuestion;
+    private Vector3 _startScaleText;
+
 
     public Timer(TimerView timerView, QuestionSO questionSO)
     {
@@ -21,6 +23,7 @@ public class Timer
 
     public void Start()
     {
+        _startScaleText = _timerView.TimerText.transform.localScale;
         Time = _questionSO.TimeAnswer + 1;
         _numberQuestion = 0;
         StartCorutine();
@@ -31,6 +34,9 @@ public class Timer
         StopCorutine();
         Time = _questionSO.TimeAnswer + 1;
         _numberQuestion++;
+        _timerView.TimerAnimator.SetBool("time", false);
+        _timerView.TimerText.transform.localRotation = Quaternion.identity;
+        _timerView.TimerText.transform.localScale = _startScaleText;
 
         StartCorutine();
     }
@@ -50,7 +56,9 @@ public class Timer
 
     private void TimeOver()
     {
-        Debug.Log("Время закончилось");
+        _timerView.TimerAnimator.SetBool("time", false);
+        _timerView.TimerText.transform.localRotation = Quaternion.identity;
+        _timerView.TimerText.transform.localScale = _startScaleText;
     }
 
     private IEnumerator CorutineTimer()
@@ -66,7 +74,12 @@ public class Timer
             if (Time <= 0)
             {
                 StopCorutine();
+                TimeOver();
                 EndTime?.Invoke();
+            }
+            if (Time <= 3 && Time > 0)
+            {
+                _timerView.TimerAnimator.SetBool("time", true);
             }
 
             yield return new WaitForSeconds(1);
