@@ -14,7 +14,7 @@ public class ButterflyActive
     public void Awake()
     {
         int countElement = Save.Level - 1;
-
+        Debug.Log(countElement + " " + Save.Level + "  " + Save.Finish);
         for(int i = 0; i <= countElement; i++)
         {
             _butterflyView.ElemetsPicture[i].SetActive(true);

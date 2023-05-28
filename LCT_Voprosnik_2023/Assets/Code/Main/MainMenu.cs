@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private PlayWindowView _playWindowView;
     [SerializeField] private MusicMenuView _musicView;
     [SerializeField] private ButterflyView _butterflyView;
+    [SerializeField] private CatView _catView;
 
     #endregion
 
@@ -35,6 +36,7 @@ public class MainMenu : MonoBehaviour
     private ChooseLevel _chooseLevel;
     private MusicMenu _musicController;
     private ButterflyActive _butterflyActive;
+    private Cat _cat;
 
     #endregion
 
@@ -50,6 +52,7 @@ public class MainMenu : MonoBehaviour
         _chooseLevel.Awake();
         _musicController.Awake();
         _butterflyActive.Awake();
+        _cat.Awake();
     }
 
     private void InitializeControllers()
@@ -62,5 +65,6 @@ public class MainMenu : MonoBehaviour
         _chooseLevel = new ChooseLevel(_playWindowView);
         _musicController = new MusicMenu(_musicView);
         _butterflyActive = new ButterflyActive(_butterflyView, _endGameSO);
+        _cat = new Cat(_catView);
     }
 }

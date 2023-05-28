@@ -74,7 +74,10 @@ public class EndGame
 
         if (CheckLastLevel()) return;
 
-        Save.SaveLevel(CurrentLevel.Level + 1);
+        if (CurrentLevel.Level >= Save.Level)
+        {
+            Save.SaveLevel(CurrentLevel.Level + 1);
+        }
     }
 
     private void Lose()

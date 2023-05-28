@@ -12,6 +12,7 @@ public class MainGame : MonoBehaviour
     [SerializeField] private WinView[] _winViews;
     [SerializeField] private LoseView _loseView;
     [SerializeField] private MusicGameView _musicGameView;
+    [SerializeField] private CatView _catView;
 
 
     #endregion
@@ -36,6 +37,7 @@ public class MainGame : MonoBehaviour
     private Win _win;
     private Lose _lose;
     private MusicGame _musicGame;
+    private Cat _cat;
 
     #endregion
 
@@ -49,6 +51,7 @@ public class MainGame : MonoBehaviour
         _win.Awake();
         _lose.Awake();
         _musicGame.Awake();
+        _cat.Awake();
     }
 
     private void Start()
@@ -68,5 +71,6 @@ public class MainGame : MonoBehaviour
         _win = new Win(_winViews);
         _lose = new Lose(_loseView);
         _musicGame = new MusicGame(_musicGameView, _chooseAnswer);
+        _cat = new Cat(_catView);
     }
 }
